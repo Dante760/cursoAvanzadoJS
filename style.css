@@ -1,0 +1,174 @@
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    font-family: Raleway, sans-serif;;
+}
+/*estilo nav enScroll*/
+nav{
+    position: absolute;
+    top: 0px;
+    justify-self:end;
+    padding: 10px;
+    background-color: transparent ;
+    width: 100%;
+    z-index: 2;
+}
+
+.enScroll{
+    animation: cambiarFondo 2s forwards;
+    position: sticky;
+    transition: 2s;
+}
+/*Estilo lista enScroll*/
+.enScroll li{
+    color: #000000;
+    font-size: 20px;
+    text-shadow: 1px 1px 0 #FFFFFF, 2px 2px 0 #808080;
+    list-style: none;
+}
+ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    padding: 25px;
+}
+li{
+    color: #FFFFFF;
+    font-size: 20px;
+    text-shadow: 2px 2px 0 #000000;
+    list-style: none;
+}
+
+li:hover{
+    text-shadow: none;
+    cursor: pointer;
+}
+/*FONDO Imagen*/
+header{
+    background-image: url(./IMG/fondo.jpg);
+    height: 600px;
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header h1{
+    font-size: 60px;
+    color: #FFFFFF;
+    font-weight: 100;
+    text-shadow: 2px 2px 0 #808080,5px 5px 0 #000000;
+}
+/*Pagina principal*/
+.contenido{
+    margin: 150px 10px;
+}
+h2{
+    text-align: center;
+    margin: 50px 20px;
+    padding: 10px;
+    font-size: 50px;
+    color: #2F3645;;
+    text-shadow: 1px 1px 0 #FFFFFF, 2px 2px 0 #808080;
+    font-weight: 100;
+}
+/*posicionamiento galeria*/
+.galeria{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/*Tarjetas*/
+.Tarjeta{
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+.Tarjeta img{
+    height: 60%;
+}
+.Tarjeta p{
+    padding: 25px;
+}
+.Tarjeta a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2F3645;
+    color: #FFFFFF;
+    text-decoration: none;
+    width: 70%;
+    height: 40px;
+}
+/*Animacion mostrar tarjetas*/
+.aparecerDerecha{
+    animation: aparecerDerecha 2s forwards; 
+    animation-delay: 0.5s;
+    transition: transform 2s;
+}
+.aparecerIzquierda{
+    animation: aparecerIzquierda 2s forwards; 
+    transition: transform 2s;
+}
+/*FOOTER*/
+footer{
+    background-color: #2F3645;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px;
+    height: 250px;
+}
+footer div{
+    display: flex;
+    gap: 30px;    
+    width: 250px;
+    justify-content: space-around;
+    align-items: center;
+}
+footer img{
+    height: 90px;
+}
+footer h3{
+    text-align: center;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+/*Animacion nav enScroll*/
+@keyframes cambiarFondo{
+    from{
+        background-color: transparent;
+    }
+    to{
+        background-color: #FFFFFF;
+    }
+}
+@keyframes aparecerDerecha {
+    from{
+        opacity: 0;
+        transform: translateX(-300px);
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes aparecerIzquierda {
+    from{
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
