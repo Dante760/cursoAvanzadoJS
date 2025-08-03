@@ -196,6 +196,7 @@ footer h3{
 .informacion p {
     padding: 15px;
     font-size: 17px;
+    color: #2F3645;
 }
 
 .texto1{
@@ -206,6 +207,9 @@ footer h3{
 }
 .texto3{
     opacity: 0;
+}
+.texto3 p{
+    padding: 60px;
 }
 
 .desplazarDerecha{
