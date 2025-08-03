@@ -4,7 +4,24 @@
     margin: 0px;
 }
 body{
-    font-family: Raleway, sans-serif;;
+    font-family: Raleway, sans-serif;
+}
+/*Estilos y posicionamiento de la ilustracion de la pc*/
+.pc1, .tecladoPC1, .soportePC{
+    opacity: 0;
+    z-index: 2;
+    animation: aparecer 2s forwards;
+}
+.pc2, .tecladoPC2{
+    opacity: 0;
+    z-index: 1;
+    animation: aparecer 2s forwards;
+    animation-delay: 1s;
+}
+.linea1, .linea2, .linea3, .linea4, .linea5{
+    opacity: 0;
+    animation: aparecerLineas 2s forwards;
+    animation-delay: 3s;
 }
 /*estilo nav enScroll*/
 nav{
@@ -14,13 +31,16 @@ nav{
     padding: 10px;
     background-color: transparent ;
     width: 100%;
-    z-index: 2;
+    z-index: 100;
+    transition: background-color 0.5s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
 }
 
 .enScroll{
-    animation: cambiarFondo 2s forwards;
+    background-color: #FFFFFF;
     position: sticky;
-    transition: 2s;
 }
 /*Estilo lista enScroll*/
 .enScroll li{
@@ -29,11 +49,19 @@ nav{
     text-shadow: 1px 1px 0 #FFFFFF, 2px 2px 0 #808080;
     list-style: none;
 }
+.enScroll a{
+    color: #000000;
+
+}
 ul{
     display: flex;
     justify-content: flex-end;
     gap: 15px;
     padding: 25px;
+}
+a{
+    color: #FFFFFF;
+    text-decoration: none;
 }
 li{
     color: #FFFFFF;
@@ -42,10 +70,12 @@ li{
     list-style: none;
 }
 
+
 li:hover{
     text-shadow: none;
     cursor: pointer;
 }
+/*ESTILOS index.html*/
 /*FONDO Imagen*/
 header{
     background-image: url(./IMG/fondo.jpg);
@@ -66,7 +96,7 @@ header h1{
 }
 /*Pagina principal*/
 .contenido{
-    margin: 150px 10px;
+    margin: 150px 15px;
 }
 h2{
     text-align: center;
@@ -142,16 +172,194 @@ footer h3{
     font-size: 15px;
     color: #FFFFFF;
 }
+/*ESTILOS historia.html*/
+#headerHistoria{
+    background-image: url(./IMG/historia-programacion.jpg);
+    height: 400px;
+}
 
-/*Animacion nav enScroll*/
-@keyframes cambiarFondo{
+
+.informacion{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    perspective: 1000px;
+    margin-bottom: 50px;
+}
+.informacion img{
+    width: 50%;
+    padding: 15px;
+    margin-bottom: 3rem;
+    opacity: 0;
+
+}
+.informacion p {
+    padding: 15px;
+    font-size: 17px;
+}
+
+.texto1{
+    opacity: 0;
+}
+.texto2{
+    opacity: 0;
+}
+.texto3{
+    opacity: 0;
+}
+
+.desplazarDerecha{
+    animation: desplazarDerecha 2s forwards; 
+    transition: transform 2s;
+}
+.rotarIzquierda{
+    animation: rotarIzquierda 2s forwards; 
+}
+
+.desplazarIzquierda{
+    animation: desplazarIzquierda 2s forwards; 
+    transition: transform 2s;
+
+}
+.rotarDerecha{
+    animation: rotarDerecha 2s forwards; 
+
+}
+
+/*Estilos para el video de historia.html*/
+.visualizador{
+    justify-self: center;
+    margin: 140px 5px;
+    padding:10px;
+}
+video{
+    height: 550px;
+}
+.cajaVideo{
+    background-color: #2F3645;
+    padding: 10px;
+}
+.controlVideo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    
+}
+.controlVideo button{
+    height: 45px;
+    width: 75px;
+    margin: 10px;
+    border: 1px solid #2F3645;
+    box-shadow: 2px 2px 0 #808080;
+}
+#duracionVideo{
+    color: #FFFFFF;
+}
+
+
+/*Rotacion de imagenes*/
+.cajas > #imagen1{
+    transform: rotateZ(-15deg);
+}
+.cajas > #imagen2{
+    transform: rotateZ(15deg);
+    
+}
+.seccionAbajo > #imagen3{
+    transform: rotateZ(95deg);
+}
+
+/*Estilos juego.html*/
+.juego{
+    margin: 140px 5px;
+}
+.caja{
+    border: 2px solid black;
+    color: #FFFFFF;
+    background-color: #808080;
+    height: 350px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.caja:hover{
+    background-color: black;
+}
+.cajas{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    z-index: -10;
+}
+.imagenes{
+    height: 350px;
+    width: 200px;
+}
+.seccionAbajo{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+#botonReiniciar{
+    display: block;
+    margin: 20px auto;
+    background-color: #2F3645;
+    color: #FFFFFF;
+    text-decoration: none;
+    width: 20%;
+    height: 40px;
+    border: none;
+    box-shadow: 2px 2px 2px #808080;
+    display: none;
+}
+
+/*Animacion Puzzle Resuelto*/
+.cajasResueltas{
+    animation: agrandarCajasVictoria 4s forwards;
+    transition: transform 2s;
+}
+.cajasResueltas > .caja{
+    border: none;
+}
+.cajasNoResueltas{
+    animation: agrandarCajasDerrota 4s forwards;
+    transition: transform 2s;
+}
+#encabezadoResultado{
+    position: relative;
+    z-index: 2;
+    margin: 70px;
+}
+.victoria{
+    animation: textoResultado 3s forwards;
+    animation-delay: 4s;
+}
+.derrota{
+    animation: textoResultado 3s forwards;
+}
+/*Animacion de la ilustracion de PC*/
+@keyframes aparecer{
     from{
-        background-color: transparent;
+        opacity: 0;
+        transform: translateY(-30px);
     }
     to{
-        background-color: #FFFFFF;
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
+@keyframes aparecerLineas{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/*Animacion tarjetas en index.html*/
 @keyframes aparecerDerecha {
     from{
         opacity: 0;
@@ -170,5 +378,104 @@ footer h3{
     to{
         transform: translateX(0px);
         opacity: 1;
+    }
+}
+/*Animaciones imagenes de historia.html*/
+@keyframes desplazarDerecha{
+    from{
+        opacity: 0;
+        transform: translate(-300px, 200px)
+        scale(1.5)
+    }
+    to{
+        opacity: 1;
+        transform: translate(0px, 0px)
+        scale(1)
+    }
+}
+@keyframes rotarIzquierda{
+    from{
+        opacity: 0;
+        transform: translateZ(-500px) translateX(500px) rotateY(-45deg) rotateX(-40deg);
+    }
+        to{
+        opacity: 1;
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+}
+
+@keyframes desplazarIzquierda{
+    from{
+        opacity: 0;
+        transform: translate(300px, 200px)
+        scale(1.5)
+    }
+    to{
+        opacity: 1;
+        transform: translate(0px, 0px)
+        scale(1)
+    }
+}
+
+@keyframes rotarDerecha{
+    from{
+        opacity: 0;
+        transform: translateZ(500px) translateX(-500px) rotateY(45deg) rotateX(40deg);
+    }
+        to{
+        opacity: 1;
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+}
+/*Animaciones cajas resueltas*/
+@keyframes agrandarCajasVictoria{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+        gap: 0px;
+    }
+    80%{
+        transform: scale(1);
+        gap: 0px;
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1);
+        gap: 0px;
+    }
+}
+@keyframes agrandarCajasDerrota{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+        gap: 0px;
+    }
+    80%{
+        transform: scale(1);
+        gap: 0px;
+    }
+    100%{
+        transform: scale(1);
+        gap: 0px;
+    }
+}
+
+/*Animacion del texto de victoria*/
+@keyframes textoResultado {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5)
+        translateY(200px)
+    }
+    100%{
+        transform: scale(1)
+        translateY(200px)
     }
 }
