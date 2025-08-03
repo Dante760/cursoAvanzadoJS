@@ -10,6 +10,8 @@ function mostrar() {
     if(window.scrollY > window.innerHeight*0.75){
         document.querySelector(".Tarjeta1").classList.add("aparecerDerecha");
         document.querySelector(".Tarjeta2").classList.add("aparecerIzquierda");
+        document.querySelector(".imagen1").classList.add("desplazarDerecha");
     }
 }
+
 
