@@ -275,6 +275,9 @@ video{
 }
 
 /*Estilos juego.html*/
+#headerJuego{
+    background-image: url(./IMG/img2.jpg);
+}
 .juego{
     margin: 140px 5px;
 }
